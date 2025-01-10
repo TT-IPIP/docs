@@ -47,7 +47,13 @@ star: true
     "name": "",
     "db_file": "data\\data.db",
     "table_prefix": "x_",
-    "ssl_mode": ""
+    "ssl_mode": "",
+    "dsn": ""
+  },
+  "meilisearch": {
+    "host": "http://localhost:7700",
+    "api_key": "",
+    "index_prefix": ""
   },
   "scheme": {
     "address": "0.0.0.0",
@@ -61,11 +67,12 @@ star: true
   },
   "temp_dir": "data\\temp",
   "bleve_dir": "data\\bleve",
+  "dist_dir": "",
   "log": {
     "enable": true,
     "name": "data\\log\\log.log",
-    "max_size": 10,
-    "max_backups": 5,
+    "max_size": 50,
+    "max_backups": 30,
     "max_age": 28,
     "compress": false
   },
@@ -75,19 +82,23 @@ star: true
   "tasks": {
     "download": {
       "workers": 5,
-      "max_retry": 1
+      "max_retry": 1,
+      "task_persistant": true
     },
     "transfer": {
       "workers": 5,
-      "max_retry": 2
+      "max_retry": 2,
+      "task_persistant": true
     },
     "upload": {
       "workers": 5,
-      "max_retry": 0
+      "max_retry": 0,
+      "task_persistant": false
     },
     "copy": {
       "workers": 5,
-      "max_retry": 2
+      "max_retry": 2,
+      "task_persistant": true
     }
   },
   "cors": {
@@ -100,7 +111,13 @@ star: true
     "allow_headers": [
       "*"
     ]
-  }    
+  },
+  "s3": {
+    "enable": false,
+    "port": 5246,
+    "ssl": false
+  }
+}
 ```
 
 ## 字段说明
@@ -194,7 +211,8 @@ CDN 地址，如果要使用 CDN，可以设置该字段，`$version` 会被替�
     "name": "",         //数据库库名
     "db_file": "data\\data.db",     //数据库位置,sqlite3使用的
     "table_prefix": "x_",           //数据库表名前缀
-    "ssl_mode": ""      //来控制SSL握手时的加密选项,参数自行搜索，或者查看下方来自ChatGPT的回答
+    "ssl_mode": "",     //来控制SSL握手时的加密选项,参数自行搜索，或者查看下方来自ChatGPT的回答
+    "dsn": ""           // https://github.com/alist-org/alist/pull/6031
   },
 ```
 
@@ -211,6 +229,10 @@ CDN 地址，如果要使用 CDN，可以设置该字段，`$version` 会被替�
 - `REQUIRED`: 必须使用 SSL 连接，如果服务器不支持 SSL 连接，则连接失败。
 - `VERIFY_CA`: 必须使用 SSL 连接，并验证服务器证书的可信性。
 - `VERIFY_IDENTITY`: 必须使用 SSL 连接，并验证服务器证书的可信性和名称是否与连接的主机名匹配。
+- `true`：必须使用 SSL 连接，并验证服务器证书的可信性和名称是否与连接的主机名匹配。
+- `false`：禁用 SSL 连接（默认）
+- `skip-verify`：必须使用 SSL 连接但跳过验证服务器证书
+- `preferred`：如果服务器启用了 SSL，则使用 SSL 连接（跳过验证服务器证书）；否则使用普通连接
 
 MySQL 5.x 和 8.x 也不一样。如果使用服务商提供的免费/收费数据库，服务商会有文档说明。自己部署的数据库那自己肯定知道。
 
@@ -242,6 +264,24 @@ MySQL 5.x 和 8.x 也不一样。如果使用服务商提供的免费/收费数�
    - 因为直接导入云盘数据库表时`sqlite`的时间和`mysql`的时间填写方式不同会提示报错 [请查看注意事项如何解决](https://www.bilibili.com/video/BV1iV4y1T7kh?t=343.7)
 
 ::::
+
+<br/>
+
+
+
+### **meilisearch**
+
+```json
+  "meilisearch": {
+    "host": "http://localhost:7700",    //使用`meilisearch`的链接，默认使用的是本机
+    "api_key": "",                      //请查阅`meilisearch`文档
+    "index_prefix": ""                  //请查阅`meilisearch`文档
+  },
+```
+
+文档链接：https://www.meilisearch.com/docs
+
+
 
 <br/>
 
@@ -285,6 +325,23 @@ temp_dir 为 alist 独占的临时文件夹，为避免程序中断产生垃圾�
 ### **bleve_dir**
 
 你使用 **`bleve`** 索引时,数据存放的位置
+
+<br/>
+
+
+
+### **dist_dir**
+
+如果设置此项，优先使用本前端文件进行渲染，支持使用其它前端文件，后端继续使用原版应用
+
+- https://github.com/alist-org/alist/issues/5531
+- https://github.com/alist-org/alist/discussions/6110
+
+将前端文件(dist)上传到应用的`data`文件夹下，然后按照下方这样填写，缺点就是如果每次更新都得需要手动更新一次
+
+```json
+  "dist_dir": "data\\dist",
+```
 
 <br/>
 
@@ -348,21 +405,25 @@ temp_dir 为 alist 独占的临时文件夹，为避免程序中断产生垃圾�
   "tasks": {
     "download": {
       "workers": 5,
-      "max_retry": 1
+      "max_retry": 1,
+      "task_persistant": true
     },
     "transfer": {
       "workers": 5,
-      "max_retry": 2
+      "max_retry": 2,
+      "task_persistant": true
     },
     "upload": {
       "workers": 5,
-      "max_retry": 0
+      "max_retry": 0,
+      "task_persistant": false
     },
     "copy": {
       "workers": 5,
-      "max_retry": 2
+      "max_retry": 2,
+      "task_persistant": true
     }
-  }
+  },
 ```
 
 - **workers**：任务线程数量
@@ -372,7 +433,11 @@ temp_dir 为 alist 独占的临时文件夹，为避免程序中断产生垃圾�
 - **transfer**：离线下载时上传中转的任务
 - **upload**：上传任务
 - **copy**：复制任务
-
+- **task_persistant**：任务持久化，重启 `AList` 后任务不会取消
+  - **download**：true
+  - **transfer**：true
+  - **upload**：false
+  - **copy**：true
 
 
 <br/>
@@ -402,3 +467,23 @@ temp_dir 为 alist 独占的临时文件夹，为避免程序中断产生垃圾�
 - **allow_headers**：允许的请求头
 
 具体使用方式自行了解进行配置，如果不了解请勿随意修改，使用默认配置就可以。
+
+<br/>
+
+
+
+### **S3**
+
+```json
+  "s3": {
+    "enable": false,
+    "port": 5246,
+    "ssl": false
+  }
+```
+
+- `enable`：S3功能是否启用，默认未启用
+- `port`：端口号
+- `SSL`：启用HTTPS证书，默认未启用
+
+功能介绍：[点击查看](../guide/advanced/s3.md)

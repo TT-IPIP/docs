@@ -10,6 +10,7 @@ category:
 tag:
   - Storage
   - Guide
+  - "302"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -20,7 +21,7 @@ star: true
 
 ilanzou：https://ilanzou.com
 
-## **root folder ID**
+## **Root folder ID**
 
 root folder ID the default is `0`，Other directory ID View the figure below obtaining method
 

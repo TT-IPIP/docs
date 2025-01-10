@@ -20,38 +20,67 @@ star: true
 
 Only for Linux-x86_64/arm64 platform.
 
-### **Install**
+::: tabs
+
+@tab Latest
+**Install**
 
 ```bash
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install
+curl -fsSL "https://alist.nn.ci/v3-en.sh" -o v3-en.sh && bash v3-en.sh
 ```
+![v3-install](/img/guide/v3-install-en.png)
 
-### **update**
+**alist-manager**
 
+"Use command: alist or alist-manager"
+![alist-manager](/img/guide/alist-manager-en.png)
+
+
+@tab Beta
+**Install**
 ```bash
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s update
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s install
 ```
 
-### **Uninstall**
-
+**Update**
 ```bash
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s uninstall
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s update
 ```
+
+**Uninstall**
+```bash
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s uninstall
+```
+
+:::
 
 ### **Custom path**
 
 The default installation is in `/opt/alist`. To customize the installation path, add the installation path as the second parameter, which must be an absolute path (if the path ends in alist, install directly to the given path, otherwise it will be installed in the given path alist Directory), such as installing to `/root`:
 
+:::tabs
+
+@tab Latest
 ```bash
 # Install
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install /root
+curl -fsSL "https://alist.nn.ci/v3-en.sh" -o v3-en.sh && bash v3-en.sh install /root
 # update
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s update /root
+curl -fsSL "https://alist.nn.ci/v3-en.sh" -o v3-en.sh && bash v3-en.sh update /root
 # Uninstall
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s uninstall /root
+curl -fsSL "https://alist.nn.ci/v3-en.sh" -o v3-en.sh && bash v3-en.sh uninstall /root
 ```
 
+@tab Beta
+```bash
+# Install
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s install /root
+# update
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s update /root
+# Uninstall
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s uninstall /root
+```
 
+:::
 
 - Start: `systemctl start alist`
 - Shut down: `systemctl stop alist`

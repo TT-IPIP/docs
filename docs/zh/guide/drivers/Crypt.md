@@ -10,6 +10,7 @@ category:
 tag:
   - Storage
   - Guide
+  - "本地代理"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -189,6 +190,14 @@ star: true
 
 因为alist内部并没有对大小写**不敏感**提供支持，所以如果使用了大小写不敏感的文件系统可能会出问题，例如：windows上使用本地存储驱动，再使用Crypt
 
+
+<br/>
+
+
+
+## **注意事项**
+
+启动AList时发现Crypt提示错误，是因为Crypt靠前启动时候找不到相关路径，可以通过给Crypt驱动填写[序号](common.md#序号)让Crypt启动靠后
 
 <br/>
 

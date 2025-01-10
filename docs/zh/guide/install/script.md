@@ -22,36 +22,69 @@ star: true
 
 仅适用于 Linux amd64/arm64 平台。
 
-## **安装**
+::: tabs
 
+@tab 正式版
+**安装**
 ```bash
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install
+curl -fsSL "https://alist.nn.ci/v3.sh" -o v3.sh && bash v3.sh
+```
+![v3-install](/img/guide/v3-install.png)
+
+**面板管理命令**
+
+使用命令：`alist` 或者 `alist-manager`
+![alist-manager](/img/guide/alist-manager.png)
+
+
+
+@tab 测试版
+**安装**
+```bash
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s install
 ```
 
-## **更新**
-
+**更新**
 ```bash
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s update
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s update
 ```
 
-## **卸载**
-
+**卸载**
 ```bash
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s uninstall
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s uninstall
 ```
+
+:::
 
 ## **自定义路径**
 
 默认安装在 `/opt/alist` 中。 自定义安装路径，将安装路径作为第二个参数添加，必须是绝对路径（如果路径以 alist 结尾，则直接安装到给定路径，否则会安装在给定路径 alist 目录下），如 安装到 `/root`：
 
+:::tabs
+
+@tab 正式版
 ```bash
 # Install
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install /root
+curl -fsSL "https://alist.nn.ci/v3.sh" -o v3.sh && bash v3.sh install /root
 # update
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s update /root
+curl -fsSL "https://alist.nn.ci/v3.sh" -o v3.sh && bash v3.sh update /root
 # Uninstall
-curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s uninstall /root
+curl -fsSL "https://alist.nn.ci/v3.sh" -o v3.sh && bash v3.sh uninstall /root
 ```
+
+@tab 测试版
+```bash
+# Install
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s install /root
+# update
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s update /root
+# Uninstall
+curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s uninstall /root
+```
+
+:::
+
+
 
 
 

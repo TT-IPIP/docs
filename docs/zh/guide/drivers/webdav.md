@@ -10,6 +10,7 @@ category:
 tag:
   - Storage
   - Guide
+  - "本地代理"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -30,7 +31,7 @@ WebDAV 根地址
 
 密码
 
-## **根文件夹路径**
+## **根文件夹ID**
 
 要挂载的文件夹路径，与加入地址相同
 
@@ -42,7 +43,13 @@ WebDAV 根地址
 
 用户名为 OneDrive 账号邮箱，密码即为 OneDrive 账号密码。
 
+## 错误提示
 
+- 提示 **failed get objs: failed to list objs: PROPFIND/根目录：403** 错误
+
+需登陆 [Entra ID](https://entra.microsoft.com/#view/Microsoft_AAD_IAM/TenantOverview.ReactView?Microsoft_AAD_IAM_legacyAADRedirect=true) 找到 `管理安全默认值` 点击并禁用（❗注：此项关闭后会关闭域的 Authenticator 验证）
+
+![webdav](/img/drivers/webdav/webdav_Security.png)
 
 ### **默认使用的下载方式**
 

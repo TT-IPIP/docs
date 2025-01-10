@@ -10,6 +10,7 @@ category:
 tag:
   - Storage
   - Guide
+  - "302"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -44,7 +45,7 @@ Get the token tool address：**https://alist.nn.ci/tool/wopan/token.html**
    ![](/img/drivers/wopan/wopan-resp.png)
 
 
-## **root folder ID**
+## **Root folder ID**
 
 - **Personal cloud：**：**0**
   - Single folder ID：Unknown (wait for replenishment)

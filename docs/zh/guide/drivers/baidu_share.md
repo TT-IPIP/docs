@@ -10,6 +10,7 @@ category:
 tag:
   - Storage
   - Guide
+  - "302"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -43,7 +44,7 @@ BDUSS由cookie中提取
 
 
 
-## **根文件夹路径**
+## **根文件夹ID**
 
 要挂载的根文件夹，默认为`/`
 
@@ -75,7 +76,7 @@ BDUSS由cookie中提取
 
 
 
-<!-- @include: baidu.md{131-183} -->
+<!-- @include: baidu.md{142-194} -->
 
 
 

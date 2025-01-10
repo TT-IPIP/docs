@@ -29,7 +29,6 @@ A file list program that supports multiple storage, and supports web browsing an
 - [x] [Aliyundrive Open](../guide/drivers/aliyundrive_open.md)
 - [x] [aliyundrive](https://www.alipan.com/)
 - [x] [OneDrive](./drivers/onedrive.md) /[APP](./drivers/onedrive_app.md)/ Sharepoint ([global](https://www.office.com/), [cn](https://portal.partner.microsoftonline.cn),de,us）
-- [x] [189cloud](https://cloud.189.cn) (Personal, Family)
 - [x] [GoogleDrive](https://drive.google.com/)
 - [x] [123pan/Share/Link](https://www.123pan.com/)
 - [x] [Alist](https://github.com/Xhofe/alist)
@@ -37,18 +36,21 @@ A file list program that supports multiple storage, and supports web browsing an
 - [x] SFTP
 - [x] [PikPak / share](https://www.mypikpak.com/)
 - [x] [S3](../guide/drivers/s3.md)
+- [x] [Doge](../guide/drivers/s3.md#add-object-storage-examples-and-official-documents)
 - [x] [UPYUN Storage Service](https://www.upyun.com/products/file-storage)
 - [x] WebDAV
 - [x] Teambition（[China](https://www.teambition.com/)，[International](https://us.teambition.com/)）
 - [x] [mediatrack](https://www.mediatrack.cn/)
+- [x] [189cloud](https://cloud.189.cn) (Personal, Family)
 - [x] [139yun](https://yun.139.com/) (Personal, Family)
 - [x] [Wopan](https://pan.wo.cn)
 - [x] [MoPan](https://mopan.sc.189.cn/mopan/#/downloadPc)
 - [x] [YandexDisk](https://disk.yandex.com/)
 - [x] [BaiduNetdisk](https://pan.baidu.com/) / [share](./drivers/baidu_share.md)
-- [x] [Quark](https://pan.quark.cn/)
-- [x] [Thunder](https://pan.xunlei.com)
+- [x] [Quark/TV](https://pan.quark.cn/)
+- [x] [Thunder / X Browser](../guide/drivers/thunder.md)
 - [x] [Lanzou](https://www.lanzou.com/)、[NewLanzou](https://www.ilanzou.com)
+- [x] [Feiji Cloud](https://feijipan.com/)
 - [x] [Aliyundrive share](https://www.alipan.com/)
 - [x] [Google photo](https://photos.google.com/)
 - [x] [Mega.nz](https://mega.nz)
@@ -63,11 +65,15 @@ A file list program that supports multiple storage, and supports web browsing an
 - [x] [Trainbit](https://trainbit.com/)
 - [x] [UrlTree](../guide/drivers/UrlTree.md)
 - [x] IPFS
-- [x] [UC Clouddrive](https://drive.uc.cn/)
+- [x] [UC Clouddrive/TV](https://drive.uc.cn/)
 - [x] [Dropbox](https://www.dropbox.com)
 - [x] [Tencent weiyun](https://www.weiyun.com/)
 - [x] [vtencent](https://app.v.tencent.com/)
 - [x] [ChaoxingGroupCloud](../guide/drivers/chaoxing.md)
+- [x] [Quqi Cloud](https://quqi.com)
+- [x] [163 Music Drive](../guide/drivers/163music.md)
+- [x] [halalcloud](../guide/drivers/halalcloud.md)
+- [x] [LenovoNasShare](https://pc.lenovo.com.cn)
 
 ### Discussion
 
@@ -79,9 +85,9 @@ Please go to our [discussion forum](https://github.com/Xhofe/alist/discussions) 
 
 ### Special sponsors
 
-- [VidHub](https://okaapps.com/product/1659622164?ref=alist) - An elegant cloud video player within the Apple ecosystem. Support for iPhone, iPad, Mac, and Apple TV.
+- [VidHub](https://apps.apple.com/app/apple-store/id1659622164?pt=118612019&ct=alist&mt=8) - An elegant cloud video player within the Apple ecosystem. Support for iPhone, iPad, Mac, and Apple TV.
 - [亚洲云](https://www.asiayun.com/aff/QQCOOQKZ) - 高防服务器|服务器租用|福州高防|广东电信|香港服务器|美国服务器|海外服务器 - 国内靠谱的企业级云计算服务提供商 (sponsored Chinese API server)
-- [找资源](https://zhaoziyuan.pw/) - 阿里云盘资源搜索引擎
+- [找资源](http://zhaoziyuan2.cc/) - 阿里云盘资源搜索引擎
 
 ### License
 

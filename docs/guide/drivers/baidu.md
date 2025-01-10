@@ -10,6 +10,7 @@ category:
 tag:
   - Storage
   - Guide
+  - "302"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -29,11 +30,25 @@ Or use the proxy function in this program to transfer.
 ### **Refresh token**
 [Click here](https://openapi.baidu.com/oauth/2.0/authorize?response_type=code&client_id=iYCeC9g08h5vuP9UqvPHKKSVrKFXGa1v&redirect_uri=https://alist.nn.ci/tool/baidu/callback&scope=basic,netdisk&qrcode=1) to get the refresh token.
 
+
+
 ### **Root folder path**
 The root foler to mount, defaults to `/`
 
 - Mount a folder separately, according to the following format, `/` is the root directory, just extend to that directory if you want to mount that directory
   - /folder_A/....../folder_x
+
+<br/>
+
+
+
+### **Custom crack ua**
+
+[**UA used when using 【Native Proxy & Crack API】**](https://github.com/alist-org/alist/issues/5602#issuecomment-1831188682)
+
+<br/>
+
+
 
 ### **Download api**
 - official: The official interface, very stable, but for larger files, UA needs to be modified and the speed is slow (SVIP speed fast)
@@ -52,6 +67,8 @@ The root foler to mount, defaults to `/`
 # This is not a mistake, this is a limit, please do not panic.
 ```
 
+<br/>
+
 
 
 ### **Add "User-Agent" usage example**
@@ -66,7 +83,17 @@ It will only be useful if a member finishes modifying **`"User-Agent"`** (choose
 
 If you don’t change **`"User-Agent"`**, you can enable ==Web Agent==, the disadvantage is that you need to build an Alist machine for transfer, that is to say, you need a large broadband to help you transfer
 
-
+<div>
+    <p style="text-align: center;"><span>Tutorial on how to modify UA in web page 302 mode: <br/></span>On the left is<span style="color:red;font-weight: bold;font-size: xx-large;">『Official』</span>API，On the right is the<span style="color:blue;font-weight: bold;font-size: xx-large;">『Crack』</span>API</p>
+    <div class="image-preview">
+        <video width="360" height="240" controls>
+            <source src="https://r2.izyt.cc/alist/baidu/%E7%99%BE%E5%BA%A6%E5%AE%98%E6%96%B9%E6%8E%A5%E5%8F%A3.mp4" type="video/mp4">
+        </video>
+        <video width="360" height="240" controls>
+            <source src="https://r2.izyt.cc/alist/baidu/%E7%99%BE%E5%BA%A6%E9%9D%9E%E5%AE%98%E6%96%B9%E6%8E%A5%E5%8F%A3.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
 
 :::tabs#ua
 

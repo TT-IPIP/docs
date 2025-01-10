@@ -47,7 +47,13 @@ After modifying the configuration file, restart AList for changes to take effect
     "name": "",
     "db_file": "data\\data.db",
     "table_prefix": "x_",
-    "ssl_mode": ""
+    "ssl_mode": "",
+    "dsn": ""
+  },
+  "meilisearch": {
+    "host": "http://localhost:7700",
+    "api_key": "",
+    "index_prefix": ""
   },
   "scheme": {
     "address": "0.0.0.0",
@@ -61,11 +67,12 @@ After modifying the configuration file, restart AList for changes to take effect
   },
   "temp_dir": "data\\temp",
   "bleve_dir": "data\\bleve",
+  "dist_dir": "",
   "log": {
     "enable": true,
     "name": "data\\log\\log.log",
-    "max_size": 10,
-    "max_backups": 5,
+    "max_size": 50,
+    "max_backups": 30,
     "max_age": 28,
     "compress": false
   },
@@ -75,19 +82,23 @@ After modifying the configuration file, restart AList for changes to take effect
   "tasks": {
     "download": {
       "workers": 5,
-      "max_retry": 1
+      "max_retry": 1,
+      "task_persistant": true
     },
     "transfer": {
       "workers": 5,
-      "max_retry": 2
+      "max_retry": 2,
+      "task_persistant": true
     },
     "upload": {
       "workers": 5,
-      "max_retry": 0
+      "max_retry": 0,
+      "task_persistant": false
     },
     "copy": {
       "workers": 5,
-      "max_retry": 2
+      "max_retry": 2,
+      "task_persistant": true
     }
   },
   "cors": {
@@ -100,7 +111,12 @@ After modifying the configuration file, restart AList for changes to take effect
     "allow_headers": [
       "*"
     ]
-  }    
+  },
+  "s3": {
+    "enable": false,
+    "port": 5246,
+    "ssl": false
+  }
 }
 ```
 
@@ -194,7 +210,8 @@ The database configuration, which is by default `sqlite3`. Available options are
     "name": "",         //database name
     "db_file": "data\\data.db",     //Database location, used by sqlite3
     "table_prefix": "x_",           //database table name prefix
-    "ssl_mode": ""      //To control the encryption options during the SSL handshake, the parameters can be searched by themselves, or check the answer from ChatGPT below
+    "ssl_mode": "",     //To control the encryption options during the SSL handshake, the parameters can be searched by themselves, or check the answer from ChatGPT below
+    "dsn": ""           // https://github.com/alist-org/alist/pull/6031
   },
 ```
 
@@ -247,6 +264,24 @@ In PostgreSQL, the `ssl_mode` parameter is used to specify how the client uses S
 
 
 
+### **meilisearch**
+
+```json
+  "meilisearch": {
+    "host": "http://localhost:7700",    //Use `meilisearch` link, the default is the local machine
+    "api_key": "",                      //Please check the `meilisearch` documentation
+    "index_prefix": ""                  //Please check the `meilisearch` documentation
+  },
+```
+
+Documentation link:：https://www.meilisearch.com/docs
+
+
+
+<br/>
+
+
+
 ### **scheme**
 
 The configuration of scheme. Set this field if using HTTPS.
@@ -285,6 +320,23 @@ temp_dir is a temporary folder exclusive to alist. In order to prevent AList fro
 ### **bleve_dir**
 
 Where data is stored when using  **`bleve`** index.
+
+<br/>
+
+
+
+### **dist_dir**
+
+If this item is set, the front -end file of this option is preferred to render, support the use of other front -end files, and the back -end continues to use the original application
+
+- https://github.com/alist-org/alist/issues/5531
+- https://github.com/alist-org/alist/discussions/6110
+
+Upload the front -end file (dist) to the `data` folder of the application, and then fill in this way. The disadvantage is that if you update each time, you need to change the file manually
+
+```json
+  "dist_dir": "data\\dist",
+```
 
 <br/>
 
@@ -347,21 +399,25 @@ Configuration for background task threads.
   "tasks": {
     "download": {
       "workers": 5,
-      "max_retry": 1
+      "max_retry": 1,
+      "task_persistant": true
     },
     "transfer": {
       "workers": 5,
-      "max_retry": 2
+      "max_retry": 2,
+      "task_persistant": true
     },
     "upload": {
       "workers": 5,
-      "max_retry": 0
+      "max_retry": 0,
+      "task_persistant": false
     },
     "copy": {
       "workers": 5,
-      "max_retry": 2
+      "max_retry": 2,
+      "task_persistant": true
     }
-  }
+  },
 ```
 
 - **workers**: Number of task threads.
@@ -372,6 +428,12 @@ Configuration for background task threads.
 - **transfer**: upload transfer task after offline download is completed
 - **upload**: upload task
 - **copy**: copy the task
+- **task_persistant**：The task is persistent and will not be cancelled after restarting `AList`
+  - download：true
+  - transfer：true
+  - upload：false
+  - copy：true
+
 
 <br/>
 
@@ -400,3 +462,23 @@ Configuration for Cross-Origin Resource Sharing (CORS).
 - **allow_headers**: Allowed request headers.
 
 Use it to understand it by yourself, and then configure it. If you do n’t know, please do n’t modify it at will. Use the default configuration.
+
+<br/>
+
+
+
+### **S3**
+
+```json
+  "s3": {
+    "enable": false,
+    "port": 5246,
+    "ssl": false
+  }
+```
+
+- `enable`：Whether the S3 function is enabled, the default is not enabled
+- `port`：port
+- `SSL`：Enable the HTTPS certificate, not enabled by default
+
+Function introduction: [Click to view](../guide/advanced/s3.md)

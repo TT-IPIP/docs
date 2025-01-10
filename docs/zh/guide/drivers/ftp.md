@@ -10,6 +10,7 @@ category:
 tag:
   - Storage
   - Guide
+  - "本地代理"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -30,7 +31,7 @@ FTP 用户名
 
 FTP 密码
 
-## **根文件夹路径**
+## **根文件夹ID**
 
 根文件夹，默认 `/`，同本地存储。
 

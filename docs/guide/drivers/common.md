@@ -46,11 +46,25 @@ Cache time of directory structure.
 
 Whether the web preview,download and the direct link go through the transfer. If you open this, recommended you set [site_url](../../config/configuration.md#site_url) so that alist can works fine.
 
+-----
+
+- Web proxy Strategies ：It is a strategy when using the webpage. The default is a local agent. If you fill in the proxy URL and enable the web agent to use the proxy URL
+- Webdav policy Strategies：It is an option to use the webdav function
+  - If there are 302 options default to 302, if there is no 302 option default to the local agent, if you want to use the agent URL, please fill in and manually switch to the proxy URL strategy
+
+The two are different configurations
+
 ### **Webdav policy**
 
 - 302 redirect: redirect to the real link
 - use proxy URL: redirect to proxy URL
 - native proxy: return data directly through local transit(best compatibility)
+
+-----
+
+- 302 redirect：Although it does not consume traffic, it is not recommended to share and use it.
+- use proxy URL：It will consume the traffic of the agent URL
+- native proxy：The traffic of the construction of Alist device will consume
 
 ### **Description of three modes**
 ```flow
@@ -86,7 +100,8 @@ You can use `cloudflare workers` for proxy, just fill in the `cloudflare workers
 The workers code can be found at https://github.com/alist-org/alist-proxy/blob/main/alist-proxy.js. in:
 
 - ADDRESS: your Alist address, The protocol header must be added, and cannot be followed by /. Such as `https://pan.nn.ci`;
-- TOKEN: you can get in `Other settings` in your Alist manage page.
+- TOKEN: you can get in `Other settings` in your Alist manage page;
+- WORKER_ADDRESS: your worker address, which should normally be same as **Download proxy URL**.
 
 :warning: Cloudflare Workers free CDN only supports (regardless of domestic or foreign) **http80 port** and **https443 port**, from group friend test
 

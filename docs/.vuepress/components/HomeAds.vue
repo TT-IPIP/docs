@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { usePageData } from "@vuepress/client";
-import { computed } from "vue";
+import { usePageData } from "@vuepress/client"
+import { computed } from "vue"
 
-const pageData = usePageData();
+const pageData = usePageData()
 
 const isZh = computed(() => {
-  return pageData.value.path.startsWith("/zh/");
-});
+  return pageData.value.path.startsWith("/zh/")
+})
 
 const vidHubEn = {
   title: "VidHub - An elegant cloud video player within the Apple ecosystem.",
@@ -14,9 +14,10 @@ const vidHubEn = {
     "Support for iPhone, iPad, Mac, and Apple TV.",
     "Supports various cloud storage providers such as Aliyun, Baidu Cloud, OneDrive, Google Drive, Dropbox, Alist, mounted with different cloud drives like Quark Cloud, pikpak, 115, and more.",
   ],
-  url: "https://okaapps.com/product/1659622164?ref=alist",
+  url: "https://apps.apple.com/app/apple-store/id1659622164?pt=118612019&ct=alist&mt=8",
   tag: "Free",
-};
+  new_site: "Open the new site",
+}
 
 const vidHubCN = {
   title: "VidHub - 苹果生态下优雅的网盘视频播放器",
@@ -26,18 +27,18 @@ const vidHubCN = {
   ],
   url: "https://zh.okaapps.com/product/1659622164?ref=alist",
   tag: "免费",
-};
+  new_site: "打开新站点",
+}
 
 const vidHub = computed(() => {
-  if (isZh.value) return vidHubCN;
-  return vidHubEn;
-});
+  if (isZh.value) return vidHubCN
+  return vidHubEn
+})
 
 const isApple = computed(() => {
-  if (navigator.platform)
-    return /Mac|iPod|iPhone|iPad/.test(navigator.platform);
-  return /Mac|iPod|iPhone|iPad/.test(navigator.userAgent);
-});
+  if (navigator.platform) return /Mac|iPod|iPhone|iPad/.test(navigator.platform)
+  return /Mac|iPod|iPhone|iPad/.test(navigator.userAgent)
+})
 </script>
 
 <template>
@@ -57,15 +58,30 @@ const isApple = computed(() => {
               <span>{{ vidHub.title }}</span>
               <span class="tag">{{ vidHub.tag }}</span>
             </div>
-            <div class="hero" v-for="hero in vidHub.hero">{{ hero }}</div>
+            <div class="hero" v-for="hero in vidHub.hero" :key="hero">
+              {{ hero }}
+            </div>
           </div>
         </div>
       </a>
+      <a class="new_site" href="https://alistgo.com" target="_blank">{{ vidHub.new_site }}</a>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+.new_site {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: larger;
+  font-weight: bold;
+  border: 1px solid #aaaaaa50;
+  border-radius: 10px;
+  padding: 10px 0;
+  color: #007bff;
+  text-decoration: none;
+}
 .vidhub {
   width: 100%;
   height: 150px;
@@ -95,7 +111,7 @@ const isApple = computed(() => {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: start;
+      align-items: flex-start;
       width: 100%;
       .title {
         color: white;
@@ -103,7 +119,7 @@ const isApple = computed(() => {
         font-size: 24px;
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center;
         height: auto;
         @media screen and (max-width: 700px) {

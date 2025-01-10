@@ -10,6 +10,7 @@ category:
 tag:
   - Storage
   - Guide
+  - "302"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -97,12 +98,22 @@ flowchart TB
 
 
 
-## **根文件夹路径**
+## **根文件夹ID**
 
 要挂载的根文件夹，默认为`/`
 
 - 单独挂载某文件夹，按照下面格式，`/`是根目录，想挂载那个目录就延伸到那个目录就可以
   - /文件夹-A/……/文件夹-x
+
+<br/>
+
+
+
+## **自定义破解ua**
+
+[**使用【本地代理 & Crack API】时候使用的UA**](https://github.com/alist-org/alist/issues/5602#issuecomment-1831188682)
+
+<br/>
 
 
 
@@ -124,7 +135,7 @@ flowchart TB
 }
 ```
 
-
+<br/>
 
 
 
@@ -138,7 +149,21 @@ flowchart TB
 
 有会员改完 **`"User-Agent"`** 才会有用（选择官方和302）
 
-如果不改 **`"User-Agent"`**，可以开启 ==Web代理==，缺点是需要你搭建Alist的机器中转，也就是说你需要大宽带帮你中转
+如果不改 **`"User-Agent"`**，可以开启 ==Web代理==，缺点是需要你搭建AList的机器中转，也就是说你需要大宽带帮你中转
+
+<div>
+    <p style="text-align: center;"><span>网页302模式修改UA教程 : <br/></span>左侧为<span style="color:red;font-weight: bold;font-size: xx-large;">『官方』</span>接口，右侧为<span style="color:blue;font-weight: bold;font-size: xx-large;">『非官方』</span>接口</p>
+    <div class="image-preview">
+        <video width="360" height="240" controls>
+            <source src="https://r2.izyt.cc/alist/baidu/%E7%99%BE%E5%BA%A6%E5%AE%98%E6%96%B9%E6%8E%A5%E5%8F%A3.mp4" type="video/mp4">
+        </video>
+        <video width="360" height="240" controls>
+            <source src="https://r2.izyt.cc/alist/baidu/%E7%99%BE%E5%BA%A6%E9%9D%9E%E5%AE%98%E6%96%B9%E6%8E%A5%E5%8F%A3.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+
 
 
 

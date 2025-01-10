@@ -10,6 +10,7 @@ category:
 tag:
   - Storage
   - Guide
+  - "302"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -41,23 +42,41 @@ typeof fetch !== "undefined" && getLimit()
 
 **阿里云盘会员：**[https://www.alipan.com/cpx/member](https://www.alipan.com/cpx/member?userCode=MzAwMDM1&disableNav=YES)
 
-- <i class="fa-solid fa-lightbulb fa-bounce" style="color: orange;"></i> 点击链接领取[**优惠券**](https://www.alipan.com/cpx/member?userCode=MzAwMDM1&disableNav=YES)，双11大促！历史底价！3折SVIP再送3个月。[**立即抢购**](https://www.alipan.com/cpx/member?userCode=MzAwMDM1&disableNav=YES) 3折SVIP再送3个月 ==仅  1 万份==
+- <i class="fa-solid fa-lightbulb fa-bounce" style="color: orange;"></i> 点击链接领取[**优惠券**](https://www.alipan.com/cpx/member?userCode=MzAwMDM1&disableNav=YES)，[**立即抢购**](https://www.alipan.com/cpx/member?userCode=MzAwMDM1&disableNav=YES) 
 
-<img src="/img/drivers/aliyun/vip2.png" alt="vip2" style="zoom:30%;" />
+<img src="https://r2.izyt.cc/ali/vip.png" alt="vip" style="zoom:30%;" />
 
 :::
 
 :::danger 请仔细阅读注意事项
 
-1.  ==此工具获取的刷新令牌仅可以用于 **阿里云盘开放平台** 存储挂载方式== 
-2.  AList 挂载时填写的 token 也应该是这个工具提供的，之前方式获取的不可以
-3.  暂不适用于其他，同时也仅限用于 Alist 使用
-4.  同一 IP 在 =={{ minutes }}== 分钟内请求 =={{ max }}== 次，会出现 **Too Many Requests** :no_entry_sign:避免滥用，请勿滥用:no_entry_sign:
+1. ==此工具获取的刷新令牌仅可以用于 **阿里云盘开放平台** 存储挂载方式== 
+
+   
+
+2. AList 挂载时填写的 token 也应该是这个工具提供的，之前方式获取的不可以
+
+   
+
+3. 暂不适用于其他，同时也仅限用于 Alist 使用
+
+   
+
+4. 同一 IP 在 =={{ minutes }}== 分钟内请求 =={{ max }}== 次，会出现 **Too Many Requests** :no_entry_sign:避免滥用，请勿滥用:no_entry_sign:
    - 查看文件看视频下载不算，上述的分钟和次数是动态的
    - 新增优化：**只会在请求发现令牌过期时去刷新令牌，更新 重启 编辑如果令牌仍然有效则不会去刷新。**
-5.  在线播放视频提示：**`ExceedCapacityForbidden`** 错误，容量超限限制播放，需要扩容或者删除不必要的文件释放空间,[查看详情](#四、)
-6.  <i class="fa-solid fa-seal-exclamation fa-beat" style="color: #ff0000;"></i> **==请勿将阿里云盘进行公开分享，禁止帐号被多IP访问，若进行分享后帐号被冻结后果自负== <i class="fa-solid fa-seal-exclamation fa-beat" style="color: #ff0000;"></i> 添加存储后请及时设置元信息等措施防止被{其他人/爬虫}恶意[访问/分享]导致帐号被冻结，其他云盘也一样防止被冻结/封号**
-7.  禁止使用阿里云盘搭建==包括但不限于== **`图床、软件床`** 和 **`视频外链到视频网站播放`** 等分发服务以及一些没有提到的不规范使用的方式，若违反被`冻结/封号`后果自负，并无法解除。
+
+   
+
+5. 在线播放视频提示：**`ExceedCapacityForbidden`** 错误，容量超限限制播放，需要扩容或者删除不必要的文件释放空间,[查看详情](#四、)
+
+   
+
+6. <i class="fa-solid fa-seal-exclamation fa-beat" style="color: #ff0000;"></i> **==请勿将阿里云盘进行公开分享，禁止帐号被多IP访问，若进行分享后帐号被冻结后果自负== <i class="fa-solid fa-seal-exclamation fa-beat" style="color: #ff0000;"></i> 添加存储后请及时设置元信息等措施防止被{其他人/爬虫}恶意[访问/分享]导致帐号被冻结，其他云盘也一样防止被冻结/封号**
+
+   
+
+7. 禁止使用阿里云盘搭建==包括但不限于== **`图床、软件床`** 和 **`视频外链到视频网站播放`** 等分发服务以及一些没有提到的不规范使用的方式，若违反被`冻结/封号`后果自负，并无法解除。
 
 :::
 
@@ -70,12 +89,12 @@ typeof fetch !== "undefined" && getLimit()
 2.  需要将`aliyundrive_open`后台配置中的`Oauth令牌链接`更换为
     - `https://api-cf.nn.ci/alist/ali_open/token`
     - `https://api.xhofe.top/alist/ali_open/token`
-    - ![](https://user-images.githubusercontent.com/56105412/245379419-bc90dd81-35d5-4773-952c-d160830efce8.png)
+    - ![](/img/drivers/aliyun/aliyun_api.png)
 
 3.  查看详情：https://github.com/alist-org/alist/discussions/4572
 
 4.  是否可以自己搭建授权OAuth验证API？
-    - 暂时不可以，但是你可以反向代理[源站](https://api.nni.ci)
+    - 需要使用自己申请的开发者帐号搭建
 
 
 :::
@@ -86,6 +105,8 @@ typeof fetch !== "undefined" && getLimit()
 ## **刷新令牌**
 
 前往：**https://alist.nn.ci/tool/aliyundrive/request**
+
+
 
 #### **获取示意图**
 
@@ -111,11 +132,17 @@ typeof fetch !== "undefined" && getLimit()
 
 <br/>
 
+
+
 ## **客户端 ID，秘钥**
 
 正常用户不需要填写为空即可，如果自己申请了官方授权也可以使用自己的进行填写，为空时默认使用 AList 提供的。
 
+- 如果使用自己的开发者帐号，Oauth令牌链接也要修改，同时也要使用自己开发者帐号ID和秘钥获取刷新令牌
+
 <br/>
+
+
 
 ## **秒传**
 
@@ -137,6 +164,8 @@ typeof fetch !== "undefined" && getLimit()
 
 <br/>
 
+
+
 ## **移除方式**
 
 不进行设置默认是删除到回收站內了，如果空间不够需要自己手动清理回收站/若删错文件请前往阿里云盘官网客户端进行找回恢复
@@ -147,18 +176,24 @@ typeof fetch !== "undefined" && getLimit()
 
 <br/>
 
+
+
 ## **云盘类型**
 
 云盘类型可以选择，可以自己的需求选择不同类型，使用 v3.25.1及以上版本的AList添加驱动时进行设置，默认选择的是`默认`类型
 
-- **默认**：有达人等级用户默认展示的是`资源库`内容，没有达人等级用户默认展示的是`备份盘`内容
+- **默认**：有达人等级用户默认展示的是`非备份文件`内容，没有达人等级用户默认展示的是`备份文件`内容
 
-- **资源库**：对应云盘的`资源库`
-- **备份盘**：对应云盘的`备份盘`
+- **资源库**：对应云盘的`非备份文件内容`
+- **备份盘**：对应云盘的`备份文件`
 
-如果你云盘內没有上述提到的内容，需要登录一下阿里云盘手机端`4.9.0`以上的版本就可以看到
+202407 --> 阿里云盘更新 `6.0` 版本后，备份盘变更为备份文件和全部文件合并在一起了，但是在OpenAPI方面还是区分 `资源库` 和 `备份盘` 类型
+
+![](/img/drivers/aliyun/aliyun_type.png)
 
 <br/>
+
+
 
 ## **Livp 下载格式**
 
@@ -169,6 +204,8 @@ typeof fetch !== "undefined" && getLimit()
 
 <br/>
 
+
+
 ## **内部上传**
 
 如果你部署 AList 的服务器是阿里云北京地区ECS，打开此开关可以提升文件上传速度。不符合要求的服务器请不要打开此开关，否则会出现无法上传的问题。
@@ -176,6 +213,8 @@ typeof fetch !== "undefined" && getLimit()
 - **内部上传**非北京地区的阿里云ECS可以使用吗？不能，因为阿里云盘在使用北京地区的对象存储
 
 <br/>
+
+
 
 ## **其他说明**
 
@@ -222,6 +261,14 @@ typeof fetch !== "undefined" && getLimit()
 >A：阿里云盘open 需要使用 **Aliyun Video Previewer**播放器，然后暂时"**只支持转码 mkv 封装的 srt、vtt 文本格式字幕**"
 >
 >- 目前只支持转码 eng、jpn、chi 三种语言，其他语言会丢失
+
+##### 六、
+
+>Q：在阿里云盘查看视频提示 `转码中，请稍后重试` 和 在AList挂载提示：`failed link: failed get link: UserNotAllowedAccessResource:user not allowed access resource for violation`
+>
+>A：代表帐号已经被冻结（以前都是直接无法登录），具体情况请查看顶部的红色内容注意事项
+
+
 
 ## **默认使用的下载方式**
 

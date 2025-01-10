@@ -10,6 +10,7 @@ category:
 tag:
   - Storage
   - Guide
+  - "本地代理"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -36,7 +37,7 @@ SSH 密码
 
 使用私钥验证而不是密码。
 
-## **根文件夹路径**
+## **根文件夹ID**
 
 挂载的根路径
 

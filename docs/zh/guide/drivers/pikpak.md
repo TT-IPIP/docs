@@ -10,13 +10,33 @@ category:
 tag:
   - Storage
   - Guide
+  - "302"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
 star: true
 ---
 
-# PikPak/分享
+# PikPak / 分享
+
+::: danger
+
+1. `个人Pikpak`：谁发出请求谁能用
+   
+   
+   
+   - 例如你在 IP `1.1.1.1`服务器搭建的AList，但是你本人IP是`2.2.2.2`，无法播放下载，或者开启代理中转策略
+
+-----
+2. `分享Pikpak`：有大小限制，超出指定文件大小后只能播放40%~50%
+
+   
+
+   - 具体多大文件暂时未知具体数值
+
+:::
+
+
 
 ## **PikPak挂载**
 
@@ -28,20 +48,146 @@ star: true
 
 密码
 
+<br/>
+
+
+
 ### **根文件夹ID**
 
 可以通过 https://mypikpak.com/ 获取，默认为 `root`。
 
 ![image.png](/img/drivers/pikpak.png)
 
+<br/>
 
 
-## **PikPak分享挂载（v3.12.0修复）**
+
+### **平台**
+
+正常情况下不需要使用，遇到无法直接使用帐号密码登录的情况下可能需要使用
+
+如果遇到验证码等其它问题
+
+- 参考 **https://github.com/alist-org/alist/pull/7024** 这里面的 `更新` 部分的内容
+
+<br/>
+
+
+
+### **刷新令牌**
+
+填写帐号和密码后，`刷新令牌方法`选择 <Badge text="Oauth2" type="info" vertical="middle" /> 然后保存就会自动填充刷新令牌、设备信息
+
+
+
+如果遇到验证码等其它问题
+
+- 参考 **https://github.com/alist-org/alist/pull/7024** 这里面的 `更新` 部分的内容
+
+<br/>
+
+
+
+### **禁用媒体链接**
+
+- **https://github.com/alist-org/alist/issues/4735**
+
+<br/>
+
+
+
+### **使用加速地址**
+
+使用访问比较快的CDN地址
+
+- **https://github.com/alist-org/alist/pull/7136**
+
+
+
+### **自定义加速地址**
+
+开启[使用加速地址](#使用加速地址)选项后，可以填写自定义加速地址
+
+留空则自动检测延迟最低的下载节点 **推荐留空使用自动检测**
+
+
+
+也可手动填写
+
+::: details 目前获取到的 官方下载域名
+
+```json
+dl-a10b-0621.mypikpak.com
+dl-a10b-0622.mypikpak.com
+dl-a10b-0623.mypikpak.com
+dl-a10b-0624.mypikpak.com
+dl-a10b-0625.mypikpak.com
+dl-a10b-0858.mypikpak.com
+dl-a10b-0859.mypikpak.com
+dl-a10b-0860.mypikpak.com
+dl-a10b-0861.mypikpak.com
+dl-a10b-0862.mypikpak.com
+dl-a10b-0863.mypikpak.com
+dl-a10b-0864.mypikpak.com
+dl-a10b-0865.mypikpak.com
+dl-a10b-0866.mypikpak.com
+dl-a10b-0867.mypikpak.com
+dl-a10b-0868.mypikpak.com
+dl-a10b-0869.mypikpak.com
+dl-a10b-0870.mypikpak.com
+dl-a10b-0871.mypikpak.com
+dl-a10b-0872.mypikpak.com
+dl-a10b-0873.mypikpak.com
+dl-a10b-0874.mypikpak.com
+dl-a10b-0875.mypikpak.com
+dl-a10b-0876.mypikpak.com
+dl-a10b-0877.mypikpak.com
+dl-a10b-0878.mypikpak.com
+dl-a10b-0879.mypikpak.com
+dl-a10b-0880.mypikpak.com
+dl-a10b-0881.mypikpak.com
+dl-a10b-0882.mypikpak.com
+dl-a10b-0883.mypikpak.com
+dl-a10b-0884.mypikpak.com
+dl-a10b-0885.mypikpak.com
+dl-a10b-0886.mypikpak.com
+dl-a10b-0887.mypikpak.com
+```
+
+:::
+
+<br/>
+
+
+
+### **离线下载**
+
+<Badge text="v3.36.0" type="info" vertical="middle" /> 及以上版本支持在AList调用Pikpak离线下载功能
+
+右下角选择  <span style="color: rgb(24, 144, 255);"><svg fill="none" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="toolbar-toggle hope-icon hope-c-XNyZK hope-c-PJLV hope-c-PJLV-ifkxHPo-css" height="1em" width="1em" style="overflow: visible;"><path fill="currentColor" d="M7 14a2 2 0 100-4 2 2 0 000 4zM14 12a2 2 0 11-4 0 2 2 0 014 0zM17 14a2 2 0 100-4 2 2 0 000 4z"></path><path fill="currentColor" fill-rule="evenodd" d="M24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zm-2 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z" clip-rule="evenodd"></path></svg></span><span style="color: rgb(24, 144, 255);"><svg fill="currentColor" stroke-width="0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="hope-icon hope-c-XNyZK hope-c-PJLV hope-c-PJLV-iipViGO-css" tips="offline_download" height="1em" width="1em" style="overflow: visible;"><path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" d="M421.83 293.82A144 144 0 00218.18 90.17M353.94 225.94a48 48 0 00-67.88-67.88"></path><path stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M192 464v-48M90.18 421.82l33.94-33.94M48 320h48"></path><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M286.06 158.06L172.92 271.19a32 32 0 01-45.25 0L105 248.57a32 32 0 010-45.26L218.18 90.17M421.83 293.82L308.69 407a32 32 0 01-45.26 0l-22.62-22.63a32 32 0 010-45.26l113.13-113.17M139.6 169.98l67.88 67.89M275.36 305.75l67.89 67.88"></path> </svg></span> 离线下载选项选择`Pikpak`
+
+- 支持：`magne`、`http`、 `ed2k` 链接
+- 也支持：X、TikTok、Facebook、TG的网址链接
+
+仅支持使用Pikpak离线下载，非Pikpak会提示如下错误，**虽然添加离线下载提示成功但是在后台会提示错误**
+
+- unsupported storage driver for offline download, only Pikpak is supported
+
+![](/img/drivers/offline_download_error.png)
+
+<br/>
+
+
+
+## **PikPak分享挂载**
 
 ::: warning
 ~~截止 **2023年2月4日** 挂载分享已被官方河蟹，目前只可以看前4分钟，后续还能不能用等待即可~~ 
 
-**v3.12.0修复,这次能活多久未知**
+~~**v3.12.0修复,这次能活多久未知（20240522）**~~
+
+已知目前pikpak分享只能看40%-50% **（v3.35.0）**
+
 :::
 
 
@@ -52,11 +198,104 @@ star: true
 
 ![pik](/img/drivers/pik/pik1.png)
 
-## **批量添加PikPak分享挂载**
+<br/>
+
+
+
+### **平台**
+
+正常情况下不需要使用，遇到无法直接使用帐号密码登录的情况下可能需要使用
+
+如果遇到验证码等其它问题
+
+- 参考 **https://github.com/alist-org/alist/pull/7024** 这里面的 `更新` 部分的内容
+
+<br/>
+
+
+
+### **使用转码地址**
+
+默认不启用，打开后 下载地址将使用**转码后的地址**，可获取 **完整的转码后的文件**
+
+- 打开 `使用转码地址` 选项后，无法使用 `AList` 网页版播放视频，但**可正常下载**或**使用第三方播放器**
+
+<br/>
+
+
+
+### **使用加速地址**
+
+使用访问比较快的CDN地址
+
+- **https://github.com/alist-org/alist/pull/7136**
+
+
+
+### **自定义加速地址**
+
+开启[使用加速地址](#使用加速地址)选项后，可以填写自定义加速地址，
+
+留空则自动检测延迟最低的下载节点， **推荐留空使用自动检测**
+
+
+
+也可手动填写
+
+::: details 目前获取到的 官方下载域名
+
+```json
+dl-a10b-0621.mypikpak.com
+dl-a10b-0622.mypikpak.com
+dl-a10b-0623.mypikpak.com
+dl-a10b-0624.mypikpak.com
+dl-a10b-0625.mypikpak.com
+dl-a10b-0858.mypikpak.com
+dl-a10b-0859.mypikpak.com
+dl-a10b-0860.mypikpak.com
+dl-a10b-0861.mypikpak.com
+dl-a10b-0862.mypikpak.com
+dl-a10b-0863.mypikpak.com
+dl-a10b-0864.mypikpak.com
+dl-a10b-0865.mypikpak.com
+dl-a10b-0866.mypikpak.com
+dl-a10b-0867.mypikpak.com
+dl-a10b-0868.mypikpak.com
+dl-a10b-0869.mypikpak.com
+dl-a10b-0870.mypikpak.com
+dl-a10b-0871.mypikpak.com
+dl-a10b-0872.mypikpak.com
+dl-a10b-0873.mypikpak.com
+dl-a10b-0874.mypikpak.com
+dl-a10b-0875.mypikpak.com
+dl-a10b-0876.mypikpak.com
+dl-a10b-0877.mypikpak.com
+dl-a10b-0878.mypikpak.com
+dl-a10b-0879.mypikpak.com
+dl-a10b-0880.mypikpak.com
+dl-a10b-0881.mypikpak.com
+dl-a10b-0882.mypikpak.com
+dl-a10b-0883.mypikpak.com
+dl-a10b-0884.mypikpak.com
+dl-a10b-0885.mypikpak.com
+dl-a10b-0886.mypikpak.com
+dl-a10b-0887.mypikpak.com
+```
+
+:::
+
+<br/>
+
+
+
+### **批量添加PikPak分享挂载**
 
 使用的软件：**https://github.com/yzbtdiy/alist_batch**
 
 <BiliBili bvid="BV1Ps4y1U7Zu" ratio="16:9" low-quality no-danmaku />
+
+<br/>
+
 
 
 ## **注意事项**
@@ -70,6 +309,10 @@ star: true
 **Q**：添加挂载时提示：**failed get objs: failed to list objs: Sorry, sharing is not available in the current region**
 
 **A**：因为在国内^PikPak^是禁止访问的，给`AList`使用代理即可，如何让`AList`使用代理[**参考方案之一,此方法仅限于Windows搭建**](https://anwen-anyi.github.io/index/07-wenti.html#_41-alist%E5%A6%82%E4%BD%95-%E4%BD%BF%E7%94%A8-%E5%90%83%E5%88%B0-%E4%BB%A3%E7%90%86-proxy)
+
+<br/>
+
+
 
 ### **默认使用的下载方式**
 
